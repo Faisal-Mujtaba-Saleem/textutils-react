@@ -1,13 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 // import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom'
 
 
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
-import About from './components/About';
+// import About from './components/About';
 import Alert from './components/Alert';
 
 function App() {
