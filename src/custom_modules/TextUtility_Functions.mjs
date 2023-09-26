@@ -1,3 +1,5 @@
+import React, { useState } from 'react'
+
 const handleSentenceClick = (Text, setText, showAlert) => {
 
     let SentenceCased = (text) => {
