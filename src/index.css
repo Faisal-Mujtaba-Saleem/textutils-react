@@ -28,3 +28,7 @@ code {
 select {
   cursor: pointer;
 }
+
+.accordion-button::after {
+  background-color: aliceblue !important;
+}

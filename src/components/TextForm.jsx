@@ -10,7 +10,7 @@ export default function TextForm(props) {
     }
 
     const TextWordsCount = () => {
-        const filteredSplitedText = Text.split(' ').filter((word, index, array) => {
+        const filteredSplitedText = Text.split(/\s+/).filter((word, index, array) => {
             const condition = word !== '';
             return condition;
         })
@@ -36,32 +36,29 @@ export default function TextForm(props) {
                     </h3>
                     <textarea className="form-control " id="text-box" rows="8" placeholder='Enter some text here' value={Text} onChange={handle_onChange} style={myStyle()}></textarea>
                 </div>
-                <button className="btn btn-primary mx-1 " onClick={() => handleSentenceClick(Text, setText, props.showAlert)}>Convert to Sentence Case</button>
-                <button className="btn btn-primary mx-1 " onClick={() => handleUpClick(Text, setText, props.showAlert)}>Convert to Upper Case</button>
-                <button className="btn btn-primary mx-1 " onClick={() => handleLowClick(Text, setText, props.showAlert)}>Convert to Lower Case</button>
-                <button className="btn btn-primary mx-1 " onClick={() => handleTitleClick(Text, setText, props.showAlert)}>Convert to Title Case</button>
-                <button className="btn btn-primary mx-1 " onClick={() => handleExtraClick(Text, setText, props.showAlert)}>Remove extra spaces</button>
+                <button disabled={Text.length === 0} className="btn btn-primary mx-1 my-1" onClick={() => handleSentenceClick(Text, setText, props.showAlert)}>Convert to Sentence Case</button>
+                <button disabled={Text.length === 0} className="btn btn-primary mx-1 my-1" onClick={() => handleUpClick(Text, setText, props.showAlert)}>Convert to Upper Case</button>
+                <button disabled={Text.length === 0} className="btn btn-primary mx-1 my-1" onClick={() => handleLowClick(Text, setText, props.showAlert)}>Convert to Lower Case</button>
+                <button disabled={Text.length === 0} className="btn btn-primary mx-1 my-1" onClick={() => handleTitleClick(Text, setText, props.showAlert)}>Convert to Title Case</button>
+                <button disabled={Text.length === 0} className="btn btn-primary mx-1 my-1" onClick={() => handleExtraClick(Text, setText, props.showAlert)}>Remove extra spaces</button>
                 <div>
-                    <button className="btn btn-primary mx-1 my-2 " onClick={() => handleCopyClick(props.showAlert)}>Copy</button>
-                    <button className="btn btn-primary mx-1 my-2 " onClick={() => handleClearClick(Text, setText, props.showAlert)}>Clear</button>
+                    <button disabled={Text.length === 0} className="btn btn-primary mx-1 my-2 " onClick={() => handleCopyClick(props.showAlert)}>Copy</button>
+                    <button disabled={Text.length === 0} className="btn btn-primary mx-1 my-2 " onClick={() => handleClearClick(Text, setText, props.showAlert)}>Clear</button>
                 </div>
             </div>
 
             <div className="container my-3 ">
                 <h3>Your Text Analyzation</h3>
-                <p>{TextWordsCount()} words, {Text.length} characters and {Text.split(' ').length} spaces.</p>
-                {
-                    TextWordsCount() !== 0 ?
-                        <p>
-                            {TextWordsCount()} words per {(0.2 * TextWordsCount()) / 60} Minutes to read.
-                        </p> :
-                        <p>No words to analyze!</p>
-                }
+                <p>{TextWordsCount()} words, {Text.length} characters and {Text.split(/\s+/).length} spaces.</p>
+                <p>
+                    {TextWordsCount()} words per {(0.2 * TextWordsCount()) / 60} Minutes to read.
+                </p>
+
                 <h3>Preview</h3>
                 <p>
                     {TextWordsCount() !== 0 ?
                         Text :
-                        `Enter some text in the textbox above to preview here!`
+                        `Nothing to preview!`
                     }
                 </p>
             </div>

@@ -1,4 +1,7 @@
+import React, { useState } from 'react'
+
 const handleSentenceClick = (Text, setText, showAlert) => {
+
     let SentenceCased = (text) => {
         text = text.toLowerCase();
         console.log(text);
@@ -13,6 +16,7 @@ const handleSentenceClick = (Text, setText, showAlert) => {
         splitedText.splice(0, 1, firstWordCapitalized);
 
         splitedText = splitedText.map((word, index, array) => {
+
             const preWord = index !== 0 ? array[index - 1] : array[index];
             if (preWord[preWord.length - 1] === '.' || preWord[preWord.length - 1] === '?' || preWord[preWord.length - 1] === ':') {
                 return word.replace(word.charAt(0), word.charAt(0).toUpperCase());
@@ -33,16 +37,19 @@ const handleSentenceClick = (Text, setText, showAlert) => {
     showAlert('Converted to sentence case!', 'success');
 }
 const handleUpClick = (Text, setText, showAlert) => {
+
     const UpperCased = Text.toUpperCase();
     setText(UpperCased);
     showAlert('Converted to upper case!', 'success')
 }
 const handleLowClick = (Text, setText, showAlert) => {
+
     const LowerCased = Text.toLowerCase();
     setText(LowerCased);
     showAlert('Converted to lower case!', 'success')
 }
 const handleTitleClick = (Text, setText, showAlert) => {
+
     let capitalized = (text) => {
         if (text !== '') {
 
@@ -63,17 +70,20 @@ const handleTitleClick = (Text, setText, showAlert) => {
     showAlert('Converted to title case!', 'success')
 }
 const handleExtraClick = (Text, setText, showAlert) => {
+
     const extraSpacesRemoved = Text.replace(/ +/g, " ");
     setText(extraSpacesRemoved);
     showAlert('Removed extra spaces!', 'success')
 }
 const handleCopyClick = (showAlert) => {
+
     let text = document.getElementById('text-box');
     window.navigator.clipboard.writeText(text.value);
     // console.log(text);
     showAlert('Copied text!', 'success')
 }
 const handleClearClick = (Text, setText, showAlert) => {
+
     const Cleared = ''
     setText(Cleared);
     showAlert('Cleared text box!', 'success')
