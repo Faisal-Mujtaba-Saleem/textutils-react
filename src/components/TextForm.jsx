@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from "react";
 import { handleClearClick, handleCopyClick, handleExtraClick, handleLowClick, handleSentenceClick, handleTitleClick, handleUpClick } from "../custom_modules/TextUtility_Functions.mjs";
 
 export default function TextForm(props) {
