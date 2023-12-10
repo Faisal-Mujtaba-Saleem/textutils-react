@@ -1,14 +1,12 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const handleSentenceClick = (Text, setText, showAlert) => {
 
     let SentenceCased = (text) => {
         text = text.toLowerCase();
-        console.log(text);
         text = text.replace(/\s+/g, " ");
-        // console.log(text);
+
         let splitedText = text.split(' ');
-        // console.log(splitedText);
 
         const firstWord_firstLetter = splitedText[0].charAt(0);
         const firstLetterUpperCased = splitedText[0].charAt(0).toUpperCase();
@@ -26,9 +24,6 @@ const handleSentenceClick = (Text, setText, showAlert) => {
         });
 
         let joinedText = splitedText.join(' ');
-
-        // console.log(splitedText);
-        // console.log(joinedText);
 
         return joinedText;
     }
@@ -79,7 +74,6 @@ const handleCopyClick = (showAlert) => {
 
     let text = document.getElementById('text-box');
     window.navigator.clipboard.writeText(text.value);
-    // console.log(text);
     showAlert('Copied text!', 'success')
 }
 const handleClearClick = (Text, setText, showAlert) => {

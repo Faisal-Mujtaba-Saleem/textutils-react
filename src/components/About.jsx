@@ -1,10 +1,4 @@
-import React, { useState } from 'react'
-
 export default function About(props) {
-    // const [displayModeStyle, setDisplayModeStyle] = useState({
-    //     backgroundColor: white,
-    //     color: 'black'
-    // })
     let displayModeStyle = {
         backgroundColor: document.body.style.backgroundColor,
         color: props.mode === 'dark' ? 'white' : 'black',
